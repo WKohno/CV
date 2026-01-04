@@ -3,15 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — CV</title>
-  <meta name="description" content="CV / Resume website for Your Name" />
+  <title>Wataru Kohno — CV</title>
+  <meta name="description" content="Academic & research CV for Wataru Kohno (Optical Networking & Sensing, NEC Labs America)" />
   <style>
     :root{
       --bg:#0b1020;
-      --card:#111a33;
       --text:#e9ecf1;
       --muted:#b8c0d0;
-      --accent:#6ee7ff;
       --line:rgba(255,255,255,.10);
       --chip:rgba(110,231,255,.12);
       --shadow: 0 12px 30px rgba(0,0,0,.35);
@@ -21,7 +19,7 @@
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
       background:
         radial-gradient(1200px 600px at 15% 10%, rgba(110,231,255,.18), transparent 55%),
@@ -53,7 +51,6 @@
       display:flex; align-items:center; justify-content:center;
       font-weight:700;
       letter-spacing:.08em;
-      color:rgba(255,255,255,.85);
       text-transform:uppercase;
     }
     .hgroup h1{margin:0; font-size:30px; line-height:1.15}
@@ -85,7 +82,6 @@
       border:1px solid var(--line);
       background: rgba(255,255,255,.04);
       text-decoration:none;
-      color:var(--text);
       font-size:14px;
     }
     .btn:hover{border-color:rgba(110,231,255,.5)}
@@ -96,7 +92,7 @@
       gap:18px;
     }
     @media (max-width: 860px){
-      header{grid-template-columns: 1fr; text-align:left}
+      header{grid-template-columns: 1fr}
       .avatar{width:88px;height:88px}
       main{grid-template-columns:1fr}
     }
@@ -112,7 +108,6 @@
       font-size:16px;
       letter-spacing:.08em;
       text-transform:uppercase;
-      color:rgba(255,255,255,.9);
     }
     .item{
       padding:12px 0;
@@ -129,21 +124,15 @@
     .role{font-weight:650}
     .where{color:var(--muted)}
     .when{color:var(--muted); font-size:14px}
-    .bullets{margin:8px 0 0 18px; color:rgba(233,236,241,.92)}
-    .chips{
-      display:flex; flex-wrap:wrap; gap:8px;
-      margin-top:10px;
-    }
+    .bullets{margin:8px 0 0 18px}
+    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
     .chip{
       padding:6px 10px;
       border-radius:999px;
       border:1px solid rgba(110,231,255,.25);
       background:var(--chip);
-      color:rgba(233,236,241,.95);
       font-size:13px;
     }
-    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:10px}
-    @media (max-width: 520px){.grid2{grid-template-columns:1fr}}
     .small{font-size:14px; color:var(--muted)}
     footer{
       margin-top:18px;
@@ -151,42 +140,37 @@
       font-size:13px;
       text-align:center;
     }
-    .badge{
-      display:inline-block;
-      margin-left:8px;
-      padding:3px 8px;
-      border-radius:999px;
-      border:1px solid rgba(110,231,255,.35);
-      color:rgba(110,231,255,.95);
-      background: rgba(110,231,255,.10);
-      font-size:12px;
-      vertical-align:middle;
-    }
   </style>
 </head>
 
 <body>
   <div class="wrap">
     <header>
-      <div class="avatar">YN</div>
+      <div class="avatar">WK</div>
       <div class="hgroup">
-        <h1>Your Name <span class="badge">CV</span></h1>
-        <p>Role / Title (e.g., Software Engineer • Data Analyst • Student)</p>
+        <h1>Wataru Kohno</h1>
+        <p>Researcher — Optical Networking &amp; Sensing, NEC Labs America</p>
 
         <div class="meta">
-          <span>📍 City, Country</span>
+          <span>📍 Princeton, NJ (or your location)</span>
           <span>•</span>
-          <a href="mailto:you@example.com">you@example.com</a>
+          <!-- TODO: change email -->
+          <a href="mailto:your-email@example.com">your-email@example.com</a>
           <span>•</span>
-          <a href="https://github.com/yourusername" target="_blank" rel="noreferrer">GitHub</a>
+          <!-- TODO: change links -->
+          <a href="https://github.com/WKohno" target="_blank" rel="noreferrer">GitHub</a>
           <span>•</span>
-          <a href="https://www.linkedin.com/in/yourusername/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <span>•</span>
+          <a href="https://scholar.google.com/citations?user=-o4nExgAAAAJ&hl=ja&oi=sra" target="_blank" rel="noreferrer">Google Scholar</a>
+          <span>•</span>
+          <a href="https://www.nec-labs.com/research/optical-networking-sensing/people/wataru-kohno/" target="_blank" rel="noreferrer">NEC Labs Profile</a>
         </div>
 
         <nav>
-          <a class="btn" href="#experience">Experience</a>
-          <a class="btn" href="#projects">Projects</a>
-          <a class="btn" href="#skills">Skills</a>
+          <a class="btn" href="#about">About</a>
+          <a class="btn" href="#research">Research</a>
+          <a class="btn" href="#publications">Publications</a>
           <a class="btn" href="#education">Education</a>
           <a class="btn" href="#contact">Contact</a>
         </nav>
@@ -194,169 +178,106 @@
     </header>
 
     <main>
-      <!-- LEFT COLUMN -->
+      <!-- LEFT -->
       <div>
-        <section>
-          <h2>Profile</h2>
+        <section id="about">
+          <h2>About</h2>
           <p>
-            Write a 2–3 sentence summary about what you do and what you’re looking for.
-            Example: “I’m a computer science student focused on web development and data.
-            I enjoy building clean UI and reliable systems.”
+            I am a Researcher in the Optical Networking &amp; Sensing Department at NEC Laboratories America.
+            My work focuses on distributed acoustic sensing (DAS) and fiber-optic communication technologies,
+            developing methods that transform optical fibers into sensitive, passive sensors for large-scale monitoring.
           </p>
         </section>
 
-        <section id="experience" style="margin-top:18px;">
-          <h2>Experience</h2>
-
-          <div class="item">
-            <div class="row">
-              <div>
-                <div class="role">Job Title — Company</div>
-                <div class="where">Team / Location</div>
-              </div>
-              <div class="when">2024 — Present</div>
-            </div>
-            <ul class="bullets">
-              <li>Achievement with numbers: “Improved X by 25% by doing Y.”</li>
-              <li>What you built / owned / delivered.</li>
-              <li>Tools used: React, Python, SQL, etc.</li>
-            </ul>
-          </div>
-
-          <div class="item">
-            <div class="row">
-              <div>
-                <div class="role">Intern / Part-time Role — Company</div>
-                <div class="where">Location</div>
-              </div>
-              <div class="when">2023 — 2024</div>
-            </div>
-            <ul class="bullets">
-              <li>Shipped feature A and reduced time/cost by X.</li>
-              <li>Collaborated with designers/engineers to deliver B.</li>
-            </ul>
+        <section id="research" style="margin-top:18px;">
+          <h2>Research Focus</h2>
+          <ul class="bullets">
+            <li>Distributed acoustic sensing (DAS) and distributed fiber-optic sensing (DFOS)</li>
+            <li>Fiber-optic acoustic recognition and AI-enhanced sensing for infrastructure monitoring</li>
+            <li>Advanced vibrometry and vibration sensing techniques</li>
+            <li>Applications: perimeter security, seismic monitoring, infrastructure protection</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Distributed Acoustic Sensing</span>
+            <span class="chip">Fiber-Optic Sensing</span>
+            <span class="chip">Optical Communications</span>
+            <span class="chip">Acoustic Recognition</span>
+            <span class="chip">AI for Sensing</span>
           </div>
         </section>
 
-        <section id="projects" style="margin-top:18px;">
-          <h2>Projects</h2>
+        <section id="publications" style="margin-top:18px;">
+          <h2>Selected Publications</h2>
 
           <div class="item">
             <div class="row">
-              <div>
-                <div class="role">Project Name</div>
-                <div class="where small">
-                  <a href="https://github.com/yourusername/project" target="_blank" rel="noreferrer">Repo</a>
-                  •
-                  <a href="https://example.com" target="_blank" rel="noreferrer">Live Demo</a>
-                </div>
-              </div>
+              <div class="role">Sound Event Classification meets Data Assimilation with Distributed Fiber-Optic Sensing</div>
               <div class="when">2025</div>
             </div>
-            <ul class="bullets">
-              <li>One-line problem + solution statement.</li>
-              <li>Key highlight: performance, UX, scale, or feature.</li>
-            </ul>
-            <div class="chips">
-              <span class="chip">JavaScript</span>
-              <span class="chip">HTML/CSS</span>
-              <span class="chip">API</span>
+            <div class="where small">DCASE 2025 Workshop</div>
+            <div class="small">
+              <a href="https://www.nec-labs.com/blog/sound-event-classification-meets-data-assimilation-with-distributed-fiber-optic-sensing/" target="_blank" rel="noreferrer">NEC Labs page</a>
             </div>
           </div>
 
           <div class="item">
             <div class="row">
-              <div>
-                <div class="role">Another Project</div>
-                <div class="where small">
-                  <a href="https://github.com/yourusername/another" target="_blank" rel="noreferrer">Repo</a>
-                </div>
-              </div>
+              <div class="role">Remote Sensing for Power Grid Fuse Tripping Using AI-Based Fiber Sensing with Aerial Telecom Cables</div>
               <div class="when">2024</div>
             </div>
-            <ul class="bullets">
-              <li>What it does, who it’s for, what makes it interesting.</li>
-            </ul>
-            <div class="chips">
-              <span class="chip">Python</span>
-              <span class="chip">Data</span>
-              <span class="chip">Automation</span>
+            <div class="where small">ECOC 2024</div>
+            <div class="small">
+              <a href="https://www.nec-labs.com/blog/remote-sensing-for-power-grid-fuse-tripping-using-ai-based-fiber-sensing-with-aerial-telecom-cables/" target="_blank" rel="noreferrer">NEC Labs page</a>
             </div>
           </div>
+
+          <div class="item">
+            <div class="row">
+              <div class="role">Distributed Fiber-Optic Sensor as an Acoustic Communication Receiver Array</div>
+              <div class="when">2023</div>
+            </div>
+            <div class="where small">Optical Fiber Sensors (OFS-28)</div>
+            <div class="small">
+              <a href="https://www.nec-labs.com/blog/distributed-fiber-optic-sensor-as-an-acoustic-communication-receiver-array/" target="_blank" rel="noreferrer">NEC Labs page</a>
+            </div>
+          </div>
+
+          <p class="small" style="margin-top:12px;">
+            Full publication list: <a href="https://scholar.google.com/citations?user=-o4nExgAAAAJ&hl=ja&oi=sra" target="_blank" rel="noreferrer">Google Scholar</a>
+          </p>
         </section>
       </div>
 
-      <!-- RIGHT COLUMN -->
+      <!-- RIGHT -->
       <div>
-        <section id="skills">
-          <h2>Skills</h2>
-          <div class="grid2">
-            <div>
-              <div class="role">Programming</div>
-              <div class="small">Python, JavaScript, TypeScript</div>
-            </div>
-            <div>
-              <div class="role">Web</div>
-              <div class="small">HTML, CSS, React</div>
-            </div>
-            <div>
-              <div class="role">Data</div>
-              <div class="small">SQL, Pandas, Excel</div>
-            </div>
-            <div>
-              <div class="role">Tools</div>
-              <div class="small">Git, GitHub, Docker</div>
-            </div>
-          </div>
-
-          <div class="chips" style="margin-top:12px;">
-            <span class="chip">Communication</span>
-            <span class="chip">Problem Solving</span>
-            <span class="chip">Teamwork</span>
-          </div>
-        </section>
-
-        <section id="education" style="margin-top:18px;">
+        <section id="education">
           <h2>Education</h2>
           <div class="item">
             <div class="row">
               <div>
-                <div class="role">Degree — University</div>
-                <div class="where">Major / Department</div>
+                <div class="role">Ph.D. in Physics</div>
+                <div class="where">Hokkaido University (Japan)</div>
               </div>
-              <div class="when">2021 — 2025</div>
+              <div class="when">—</div>
             </div>
-            <div class="small">Relevant coursework: Algorithms, Databases, Web Dev</div>
-          </div>
-        </section>
-
-        <section style="margin-top:18px;">
-          <h2>Certifications</h2>
-          <div class="item">
-            <div class="row">
-              <div class="role">Certificate Name</div>
-              <div class="when">2025</div>
-            </div>
-            <div class="small">Issuer (e.g., Coursera, Google, AWS)</div>
+            <div class="small">Foundation in physics and engineering principles underlying optical communications.</div>
           </div>
         </section>
 
         <section id="contact" style="margin-top:18px;">
           <h2>Contact</h2>
-          <p class="small">Best way to reach me:</p>
+          <p class="small">Best ways to reach me:</p>
           <p>
-            📧 <a href="mailto:you@example.com">you@example.com</a><br />
-            💬 <a href="https://www.linkedin.com/in/yourusername/" target="_blank" rel="noreferrer">LinkedIn message</a>
+            📧 <a href="mailto:your-email@example.com">your-email@example.com</a><br />
+            🎓 <a href="https://scholar.google.com/citations?user=-o4nExgAAAAJ&hl=ja&oi=sra" target="_blank" rel="noreferrer">Google Scholar</a><br />
+            🧪 <a href="https://www.nec-labs.com/research/optical-networking-sensing/people/wataru-kohno/" target="_blank" rel="noreferrer">NEC Labs Profile</a><br />
+            💻 <a href="https://github.com/WKohno" target="_blank" rel="noreferrer">GitHub</a>
           </p>
-          <p class="small">Optional: Add a link to a PDF resume.</p>
-          <!-- Example: <a class="btn" href="resume.pdf" download>Download PDF</a> -->
         </section>
       </div>
     </main>
 
-    <footer>
-      © <span id="year"></span> Your Name • Built with HTML + GitHub Pages
-    </footer>
+    <footer>© <span id="year"></span> Wataru Kohno • GitHub Pages</footer>
   </div>
 
   <script>
