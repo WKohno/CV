@@ -4,440 +4,313 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wataru Kohno — CV</title>
-  <meta name="description" content="Academic & research CV for Wataru Kohno (Optical Networking & Sensing, NEC Labs America)" />
   <style>
-    :root{
-      --bg:#0b1020;
-      --text:#e9ecf1;
-      --muted:#b8c0d0;
-      --line:rgba(255,255,255,.10);
-      --chip:rgba(110,231,255,.12);
-      --shadow: 0 12px 30px rgba(0,0,0,.35);
-      --radius:18px;
-      --max: 980px;
+    :root {
+      --bg: #0b1020;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --text-main: #e9ecf1;
+      --text-muted: #b8c0d0;
+      --accent: #6ee7ff;
+      --border: rgba(255, 255, 255, 0.12);
+      --radius: 16px;
+      --max-width: 850px;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 15% 10%, rgba(110,231,255,.18), transparent 55%),
-        radial-gradient(900px 500px at 85% 20%, rgba(167,139,250,.18), transparent 55%),
-        var(--bg);
-      line-height:1.6;
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 15% 10%, rgba(110,231,255,0.1), transparent 40%), var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
     }
-    a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 60px}
-    header{
-      display:grid;
-      grid-template-columns: 120px 1fr;
-      gap:18px;
-      align-items:center;
-      padding:18px;
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      box-shadow: var(--shadow);
+
+    .wrap { max-width: var(--max-width); margin: 0 auto; padding: 60px 24px; }
+
+    header { text-align: center; margin-bottom: 50px; }
+    .avatar { width: 120px; height: 120px; border-radius: 50%; border: 1px solid var(--accent); padding: 4px; margin-bottom: 20px; }
+    h1 { margin: 0; font-size: 36px; letter-spacing: -0.02em; }
+    .title-sub { margin: 8px 0 20px; color: var(--accent); font-size: 1.2rem; font-weight: 500; }
+
+    .meta { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; font-size: 14px; color: var(--text-muted); }
+    .meta a { color: var(--text-main); text-decoration: none; border-bottom: 1px solid rgba(110,231,255,0.3); transition: 0.2s; }
+    .meta a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+    section { margin-bottom: 50px; }
+    h2 {
+      font-size: 13px; text-transform: uppercase; letter-spacing: 0.2em;
+      color: var(--accent); border-bottom: 1px solid var(--border);
+      padding-bottom: 8px; margin-bottom: 24px;
     }
-    .avatar{
-      width:110px; height:110px;
-      border-radius:50%;
-      border:1px solid var(--line);
-      background:
-        radial-gradient(circle at 30% 30%, rgba(110,231,255,.45), transparent 60%),
-        radial-gradient(circle at 70% 70%, rgba(167,139,250,.35), transparent 60%),
-        rgba(255,255,255,.05);
-      display:flex; align-items:center; justify-content:center;
-      font-weight:700;
-      letter-spacing:.08em;
-      text-transform:uppercase;
+
+    /* --- Tab Component --- */
+    .tab-container { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+    .tab-nav { display: flex; border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.02); overflow-x: auto; }
+    .tab-btn {
+      flex: 1; padding: 16px; border: none; background: none; color: var(--text-muted);
+      cursor: pointer; font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; transition: 0.3s; white-space: nowrap;
     }
-    .hgroup h1{margin:0; font-size:30px; line-height:1.15}
-    .hgroup p{margin:8px 0 0; color:var(--muted)}
-    .meta{
-      margin-top:12px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      color:var(--muted);
-      font-size:14px;
-    }
-    .meta a{
-      text-decoration:none;
-      border-bottom:1px dashed rgba(110,231,255,.35);
-    }
-    nav{
-      margin:18px 0 0;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 12px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      text-decoration:none;
-      font-size:14px;
-    }
-    .btn:hover{border-color:rgba(110,231,255,.5)}
-    main{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:18px;
-    }
-    @media (max-width: 860px){
-      header{grid-template-columns: 1fr}
-      .avatar{width:88px;height:88px}
-      main{grid-template-columns:1fr}
-    }
-    section{
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:16px 16px 14px;
-      background: rgba(255,255,255,.03);
-      box-shadow: 0 6px 20px rgba(0,0,0,.20);
-    }
-    section h2{
-      margin:0 0 10px;
-      font-size:16px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-    .item{
-      padding:12px 0;
-      border-top:1px solid var(--line);
-    }
-    .item:first-of-type{border-top:0; padding-top:0}
-    .row{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:baseline;
-    }
-    .role{font-weight:650}
-    .where{color:var(--muted)}
-    .when{color:var(--muted); font-size:14px}
-    .bullets{margin:8px 0 0 18px}
-    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
-    .chip{
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(110,231,255,.25);
-      background:var(--chip);
-      font-size:13px;
-    }
-    .small{font-size:14px; color:var(--muted)}
-    footer{
-      margin-top:18px;
-      color:rgba(184,192,208,.85);
-      font-size:13px;
-      text-align:center;
+    .tab-btn.active { color: var(--accent); background: rgba(110,231,255,0.08); box-shadow: inset 0 -2px 0 var(--accent); }
+    .tab-content { padding: 24px; display: none; min-height: 220px; }
+    .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* --- Items & Cards --- */
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    .item-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
+    .item-title { font-weight: 700; font-size: 1.1rem; color: var(--text-main); text-decoration: none; transition: 0.2s; }
+    .item-title:hover { color: var(--accent); }
+    .item-venue { font-size: 13px; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+    .item-meta { font-size: 14px; color: var(--text-muted); margin-bottom: 8px; }
+
+    .desc { font-size: 14.5px; color: var(--text-muted); }
+    .bullets { margin: 12px 0 0 18px; padding: 0; font-size: 14px; color: var(--text-muted); }
+    .bullets li { margin-bottom: 8px; }
+
+    .doi-link { font-size: 13px; color: var(--accent); text-decoration: none; opacity: 0.8; }
+    .doi-link:hover { opacity: 1; text-decoration: underline; }
+
+    footer { text-align: center; padding: 60px 20px; font-size: 13px; color: var(--text-muted); opacity: 0.6; border-top: 1px solid var(--border); }
+
+    @media (max-width: 600px) {
+      .item-header { flex-direction: column; gap: 4px; }
+      h1 { font-size: 28px; }
     }
   </style>
 </head>
-
 <body>
-  <div class="wrap">
-    <header>
-      <img
-      src="assets/avatar.jpeg"
-      alt="Wataru Kohno"
-      class="avatar"
-      />
 
-      <div class="hgroup">
-        <h1>Wataru Kohno</h1>
-        <p>Researcher — Optical Networking &amp; Sensing</p>
+<div class="wrap">
+  <header>
+    <img src="assets/avatar.jpeg" alt="Wataru Kohno" class="avatar" />
+    <h1>Wataru Kohno</h1>
+    <div class="title-sub">Researcher — Fiber-Optic Acoustic Sensing</div>
+    <div class="meta">
+      <span>📍 Kawasaki, Japan</span>
+      <a href="mailto:wataru.kohno@gmail.com">wataru.kohno@gmail.com</a>
+      <a href="https://www.linkedin.com/in/wkohno" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=-o4nExgAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+      <a href="https://www.nec-labs.com/research/optical-networking-sensing/people/wataru-kohno/" target="_blank" rel="noopener noreferrer">NEC Labs Profile</a>
+    </div>
+  </header>
 
-        <div class="meta">
-          <span>📍 Kawasaki, Kanagawa</span>
-          <span>•</span>
-          <!-- TODO: change email -->
-          <a href="mailto:wataru.kohno@gmail.com">wataru.kohno@gmail.com</a>
-          <span>•</span>
-          <!-- TODO: change links -->
-          <!--<a href="https://github.com/WKohno" target="_blank" rel="noreferrer">GitHub</a>-->
-          <!--<span>•</span>-->
-          <a href="https://www.linkedin.com/in/wkohno" target="_blank" rel="noreferrer">LinkedIn</a>
-          <span>•</span>
-          <a href="https://scholar.google.com/citations?user=-o4nExgAAAAJ&hl=ja&oi=sra" target="_blank" rel="noreferrer">Google Scholar</a>
-          <span>•</span>
-          <a href="https://www.nec-labs.com/research/optical-networking-sensing/people/wataru-kohno/" target="_blank" rel="noreferrer">Profile in NEC labs</a>
+  <section id="about">
+    <h2>About</h2>
+    <p class="desc">
+      Researcher specializing in fiber-optic and acoustic sensing technologies, with a strong background in
+      distributed acoustic sensing (DAS), signal processing, and physics-based modeling. Currently at NEC Corporation,
+      developing scalable sensing systems that transform standard optical fibers into large-scale, passive sensor
+      arrays for infrastructure monitoring, security, and environmental observation.
+    </p>
+  </section>
+
+  <section id="research-focus">
+    <h2>Research Focus</h2>
+    <div class="card">
+      <ul class="bullets">
+        <li>Distributed acoustic sensing (DAS) and distributed fiber-optic sensing (DFOS)</li>
+        <li>Fiber-optic acoustic recognition and AI-enhanced sensing for infrastructure monitoring</li>
+        <li>Advanced vibrometry and vibration sensing techniques</li>
+        <li>Applications: Perimeter security, seismic monitoring, and infrastructure protection</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="expertise">
+    <h2>Research Expertise</h2>
+    <div class="tab-container">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="openTab(event, 'optical')">Optical Systems</button>
+        <button class="tab-btn" onclick="openTab(event, 'signal')">Signal Processing &amp; AI</button>
+        <button class="tab-btn" onclick="openTab(event, 'tools')">Practical Skills</button>
+        <button class="tab-btn" onclick="openTab(event, 'physics')">Theoretical Physics</button>
+      </div>
+
+      <div id="optical" class="tab-content active">
+        <div style="font-weight: 600; margin-bottom: 10px; color: var(--accent);">
+          Optical Sensing &amp; Physical Systems
         </div>
-
-        <nav>
-          <a class="btn" href="#about">About</a>
-          <a class="btn" href="#research">Research</a>
-          <a class="btn" href="#publications">Publications</a>
-          <a class="btn" href="#education">Education</a>
-          <a class="btn" href="#contact">Contact</a>
-          <a class="btn" href="#research-skills">Research Skill</a>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <!-- LEFT -->
-      <div>
-        <section id="about">
-          <h2>About</h2>
-          <p>
-            I am a Researcher in the Optical Networking &amp; Sensing Department at NEC Corporation.
-            My work focuses on distributed acoustic sensing (DAS) and fiber-optic communication technologies,
-            developing methods that transform optical fibers into sensitive, passive sensors for large-scale monitoring.
-          </p>
-        </section>
-
-        <section id="research" style="margin-top:18px;">
-          <h2>Research Focus</h2>
-          <ul class="bullets">
-            <li>Distributed acoustic sensing (DAS) and distributed fiber-optic sensing (DFOS)</li>
-            <li>Fiber-optic acoustic recognition and AI-enhanced sensing for infrastructure monitoring</li>
-            <li>Advanced vibrometry and vibration sensing techniques</li>
-            <li>Applications: perimeter security, seismic monitoring, infrastructure protection</li>
-          </ul>
-          <div class="chips">
-            <span class="chip">Distributed Acoustic Sensing</span>
-            <span class="chip">Fiber-Optic Sensing</span>
-            <span class="chip">Optical Communications</span>
-            <span class="chip">Acoustic Recognition</span>
-            <span class="chip">AI for Sensing</span>
-          </div>
-        </section>
-
-        <section id="publications" style="margin-top:18px;">
-
-          <h2>Recent Primary Publications</h2>
-          
-          <div class="item">
-            <div class="row">
-              <div class="role">
-                <a href="https://ieeexplore.ieee.org/document/11190853"
-                   target="_blank" rel="noreferrer">
-                  Multiple Sensor-head Phase-sensitive Optical Time-domain Laser Vibrometer
-                </a>
-              </div>
-              <div class="when">CLEO 2025</div>
-            </div>
-            <ul class="bullets">
-              <li>
-                Proposed a multi–sensor-head φ-OTDR / laser vibrometry architecture enabling scalable
-                distributed vibration measurement with high phase sensitivity.
-              </li>
-            </ul>
-          </div>
-          
-          <div class="item">
-            <div class="row">
-              <div class="role">
-                <a href="https://ieeexplore.ieee.org/document/10887613"
-                   target="_blank" rel="noreferrer">
-                  Text-guided Device-realistic Sound Generation for Fiber-based Sound Event Classification
-                </a>
-              </div>
-              <div class="when">ICASSP 2025</div>
-            </div>
-            <ul class="bullets">
-              <li>
-                Introduced text-guided synthetic data generation that preserves device-specific
-                characteristics of fiber-optic acoustic sensing systems for robust sound event classification.
-              </li>
-            </ul>
-          </div>
-          
-          <div class="item">
-            <div class="row">
-              <div class="role">
-                <a href="https://ieeexplore.ieee.org/document/11046548"
-                   target="_blank" rel="noreferrer">
-                  Underwater Acoustic OFDM Transmission over Optical Fiber with Distributed Acoustic Sensing
-                </a>
-              </div>
-              <div class="when">OFC 2025</div>
-            </div>
-            <ul class="bullets">
-              <li>
-                Demonstrated underwater acoustic data transmission using DAS-enabled optical fiber,
-                bridging fiber-optic sensing and underwater acoustic communications.
-              </li>
-            </ul>
-          </div>
-          
-          <p class="small" style="margin-top:12px;">
-            Full publication list available on
-            <a href="https://scholar.google.com/citations?user=-o4nExgAAAAJ&hl=ja&oi=sra"
-               target="_blank" rel="noreferrer">Google Scholar</a>.
-          </p>
-          
+        <ul class="bullets">
+          <li>Distributed acoustic sensing (DAS) and &phi;-OTDR</li>
+          <li>Fiber-optic vibrometry and acoustic sensing systems</li>
+          <li>Signal acquisition and system modeling for sensing devices</li>
+        </ul>
       </div>
 
-      <!-- RIGHT -->
-      <div>
-        <section id="education">
-          <h2>Education</h2>
-          <div class="item">
-            <div class="row">
-              <div>
-                <div class="role">Ph.D. in Condensed Matter Physics</div>
-                <div class="where">Hokkaido University (Japan)</div>
-              </div>
-              <div class="when">—</div>
-            </div>
-            <div class="small">
-              Theoretical study of phase transission, superconductivity and Bose-Einstein Condensates, based on the quantum field theory and statistical physics.
-            </div>
-          </div>
-        </section>
+      <div id="physics" class="tab-content">
+        <div style="font-weight: 600; margin-bottom: 10px; color: var(--accent);">
+          Theoretical &amp; Mathematical Physics
+        </div>
+        <ul class="bullets">
+          <li>Quantum field theory and many-body theory</li>
+          <li>Superconductivity and vortex physics</li>
+          <li>Bose–Einstein condensates and quantum gases</li>
+          <li>Generalizing quantum statistical principles for correlated phenomena</li>
+        </ul>
+      </div>
 
-        <section id="phdwork" style="margin-top:18px;">
+      <div id="signal" class="tab-content">
+        <div style="font-weight: 600; margin-bottom: 10px; color: var(--accent);">
+          Signal Processing &amp; Machine Learning
+        </div>
+        <ul class="bullets">
+          <li>Time–frequency analysis and spectral methods</li>
+          <li>Acoustic signal processing and feature extraction</li>
+          <li>Physics-aware data generation and sound event classification</li>
+          <li>Integration of ML models with physical sensing constraints</li>
+        </ul>
+      </div>
 
-<h2>Selected PhD Works</h2>
-
-<div class="item">
-  <div class="row">
-    <div class="role">
-      <a href="https://doi.org/10.7566/JPSJ.85.083705"
-         target="_blank" rel="noreferrer">
-        Hall Effect in the Abrikosov Lattice of Type-II Superconductors
-      </a>
+      <div id="tools" class="tab-content">
+        <div style="font-weight: 600; margin-bottom: 10px; color: var(--accent);">
+          Numerical Calculation &amp; Tools
+        </div>
+        <ul class="bullets">
+          <li>Numerical simulation and modeling of physical systems</li>
+          <li>Python for data analysis, prototyping, and ML (PyTorch/NumPy)</li>
+          <li>Data assimilation and model-based inference</li>
+          <li>LaTeX for scientific writing and high-impact publication</li>
+        </ul>
+      </div>
     </div>
-    <div class="when">JPSJ 2016</div>
-  </div>
+  </section>
 
-  <div class="where small">
-    J. Phys. Soc. Jpn. <strong>85</strong>, 083705 (2016) • Editors’ Choice
-  </div>
+  <section id="publications">
+    <h2>Recent Primary Publications</h2>
 
-  <ul class="bullets">
-    <li>
-      Theoretical study of vortex charging and Hall response in an Abrikosov vortex lattice,
-      based on augmented quasiclassical equations of superconductivity.
-    </li>
-  </ul>
+    <div class="card">
+      <div class="item-header">
+        <a href="https://ieeexplore.ieee.org/document/11190853" class="item-title" target="_blank" rel="noopener noreferrer">
+          Multiple Sensor-head Phase-sensitive &phi;-OTDR Laser Vibrometer
+        </a>
+        <span class="item-venue">CLEO 2025</span>
+      </div>
+      <p class="desc">
+        Proposed a multi–sensor-head architecture that enables scalable distributed acoustic sensing with remote laser sensing.
+      </p>
+    </div>
 
-  <div class="small">
-    DOI:
-    <a href="https://doi.org/10.7566/JPSJ.85.083705"
-       target="_blank" rel="noreferrer">
-      10.7566/JPSJ.85.083705
-    </a>
-  </div>
+    <div class="card">
+      <div class="item-header">
+        <a href="https://ieeexplore.ieee.org/document/10887613" class="item-title" target="_blank" rel="noopener noreferrer">
+          Text-guided Device-realistic Sound Generation for Fiber-based Sound Event Classification
+        </a>
+        <span class="item-venue">ICASSP 2025</span>
+      </div>
+      <p class="desc">
+        Introduced text-guided synthetic data generation that preserves key characteristics of fiber-optic acoustic sensing systems.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="item-header">
+        <a href="https://ieeexplore.ieee.org/document/11046548" class="item-title" target="_blank" rel="noopener noreferrer">
+          Underwater Acoustic OFDM Transmission over Optical Fiber with DAS
+        </a>
+        <span class="item-venue">OFC 2025</span>
+      </div>
+      <p class="desc">
+        Demonstrated underwater acoustic data transmission using DAS-enabled optical fiber in a real underwater environment.
+      </p>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="card">
+      <div class="item-header">
+        <span class="item-title">Ph.D. in Condensed Matter Physics</span>
+        <span class="item-venue">Hokkaido University</span>
+      </div>
+      <div class="item-meta">JSPS Research Fellow (DC2) | Japan</div>
+      <p class="desc">
+        Theoretical research on phase transitions, superconductivity, and Bose–Einstein condensates (BECs) using quantum field theory
+        and statistical physics. Generalized established theories based on fundamental quantum statistical principles and applied them
+        to strongly correlated phenomena:
+      </p>
+      <ul class="bullets">
+        <li><strong>Superconducting Vortex Systems:</strong> Developed approaches beyond Eilenberger and Ginzburg–Landau theories.</li>
+        <li><strong>Weakly Interacting BECs:</strong> Applied methods beyond Gross–Pitaevskii and Bogoliubov approximations.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="phd-work">
+    <h2>Selected PhD Works</h2>
+
+    <div class="card">
+      <div class="item-header">
+        <a href="https://doi.org/10.7566/JPSJ.85.083705" class="item-title" target="_blank" rel="noopener noreferrer">
+          Hall Effect in the Abrikosov Lattice of Type-II Superconductors
+        </a>
+        <span class="item-venue">JPSJ 2016 • Editors’ Choice</span>
+      </div>
+      <p class="desc">
+        Theoretical study of vortex charging and Hall response in an Abrikosov vortex lattice, based on augmented quasiclassical equations of superconductivity.
+      </p>
+      <div style="margin-top:10px;">
+        <a href="https://doi.org/10.7566/JPSJ.85.083705" class="doi-link" target="_blank" rel="noopener noreferrer">
+          DOI: 10.7566/JPSJ.85.083705
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="item-header">
+        <a href="https://doi.org/10.7566/JPSJ.87.034002" class="item-title" target="_blank" rel="noopener noreferrer">
+          Ground-State Wave Function in M-Component Miscible BECs
+        </a>
+        <span class="item-venue">JPSJ 2018</span>
+      </div>
+      <p class="desc">
+        Developed a variational many-body ground-state description beyond mean-field for multi-component miscible Bose–Einstein condensates,
+        incorporating correlation effects and stability analysis.
+      </p>
+      <div style="margin-top:10px;">
+        <a href="https://doi.org/10.7566/JPSJ.87.034002" class="doi-link" target="_blank" rel="noopener noreferrer">
+          DOI: 10.7566/JPSJ.87.034002
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card" style="text-align: center;">
+      <p class="desc">Best way to reach me:</p>
+      <p style="font-size: 1.1rem;">
+        📧 <a href="mailto:wataru.kohno@gmail.com" style="color: var(--accent); text-decoration: none;">
+          wataru.kohno@gmail.com
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Wataru Kohno • GitHub Pages • Built with HTML/CSS/JS
+  </footer>
 </div>
 
-<div class="item">
-  <div class="row">
-    <div class="role">
-      <a href="https://doi.org/10.7566/JPSJ.87.034002"
-         target="_blank" rel="noreferrer">
-        Ground-State Wave Function with Interactions between Different Species in <i>M</i>-Component Miscible Bose-Einstein Condensates
-      </a>
-    </div>
-    <div class="when">JPSJ 2018</div>
-  </div>
-
-  <div class="where small">
-    J. Phys. Soc. Jpn. <strong>87</strong>, 034002 (2018)
-  </div>
-
-  <ul class="bullets">
-    <li>
-      Developed a variational many-body ground-state description beyond mean-field for
-      multi-component miscible Bose–Einstein condensates, incorporating correlation effects
-      and analyzing stability conditions.
-    </li>
-  </ul>
-
-  <div class="small">
-    DOI:
-    <a href="https://doi.org/10.7566/JPSJ.87.034002"
-       target="_blank" rel="noreferrer">
-      10.7566/JPSJ.87.034002
-    </a>
-  </div>
-</div>
-
-
-
-          
-      </section>
-
-
-        <section id="research-skills" style="margin-top:18px;">
-          <h2>Research Skill Set</h2>
-        
-          <div class="item">
-            <div class="role">Theoretical & Mathematical Physics</div>
-            <ul class="bullets">
-              <li>Quantum field theory and many-body theory</li>
-              <li>Superconductivity and vortex physics</li>
-              <li>Bose–Einstein condensates and quantum gases</li>
-              <li>Statistical physics and nonequilibrium phenomena</li>
-            </ul>
-          </div>
-        
-          <div class="item">
-            <div class="role">Optical Sensing & Physical Systems</div>
-            <ul class="bullets">
-              <li>Distributed acoustic sensing (DAS) and φ-OTDR</li>
-              <li>Fiber-optic vibrometry and acoustic sensing systems</li>
-              <li>Signal acquisition and system modeling for sensing devices</li>
-            </ul>
-          </div>
-        
-          <div class="item">
-            <div class="role">Signal Processing & Data Analysis</div>
-            <ul class="bullets">
-              <li>Time–frequency analysis and spectral methods</li>
-              <li>Acoustic signal processing and feature extraction</li>
-              <li>Data assimilation and model-based inference</li>
-            </ul>
-          </div>
-        
-          <div class="item">
-            <div class="role">Machine Learning for Physical Systems</div>
-            <ul class="bullets">
-              <li>Sound event classification for fiber-based sensing</li>
-              <li>Physics-aware data generation and augmentation</li>
-              <li>Integration of ML models with physical sensing constraints</li>
-            </ul>
-          </div>
-        
-          <div class="item">
-            <div class="role">Scientific Computing & Tools</div>
-            <ul class="bullets">
-              <li>Numerical simulation and modeling of physical systems</li>
-              <li>Python for data analysis and prototyping</li>
-              <li>LaTeX for scientific writing and publication</li>
-            </ul>
-          </div>
-        </section>
-
-              
-        <section id="contact" style="margin-top:18px;">
-          <h2>Contact</h2>
-          <p class="small">Best ways to reach me:</p>
-          <p>
-            📧 <a href="mailto:wataru.kohno@gmail.com">wataru.kohno@gmail.com</a><br />
-            <!--🎓 <a href="https://scholar.google.com/citations?user=-o4nExgAAAAJ&hl=ja&oi=sra" target="_blank" rel="noreferrer">Google Scholar</a><br />-->
-            <!--🧪 <a href="https://www.nec-labs.com/research/optical-networking-sensing/people/wataru-kohno/" target="_blank" rel="noreferrer">Profile in NEC labs</a><br />-->
-            <!--💻 <a href="https://github.com/WKohno" target="_blank" rel="noreferrer">GitHub</a> -->
-          </p>
-        </section>
-      </div>
-    </main>
-
-    <footer>© <span id="year"></span> Wataru Kohno • GitHub Pages</footer>
-  </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<script>
+  function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+      tabcontent[i].classList.remove("active");
+    }
+    tablinks = document.getElementsByClassName("tab-btn");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    document.getElementById(tabName).classList.add("active");
+    evt.currentTarget.className += " active";
+  }
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
+
